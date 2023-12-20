@@ -1,0 +1,18 @@
+
+
+<div class="container p-4">
+    <h1>api Upload Imagenes!</h1>
+    <br>
+    <div>
+        <img [src]="base64url" style="max-width: 200px; font-size: 14px; font-style: bold;">    
+    </div>
+
+    <div>
+        <input type="file" name="image" (change)="selectFile($event)">
+        <button type="button" class="btn btn-primary" (click)=subirArchivo()> Subir archivo</button>
+        <button type="button" class="btn btn-primary" (click)="ingresar()">Guardar</button>
+        <br>        
+        <p>La URL de la imagen es: <a href="{{ miImagen.imageurl }}">Ver imagen</a> <br> {{ miImagen.imageurl }} </p>    
+    </div>
+
+</div>

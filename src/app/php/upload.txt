@@ -1,0 +1,75 @@
+<?php
+// Es importante definir los permisos para tramitar solicitudes CORS desde Angular
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+header("Access-Control-Allow-Credentials: true");
+
+// **Se recibe la Petición HTTP**
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // **Archivo a subir**
+    if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
+        // **Nombre y ruta del archivo**
+        $nombreArchivo = $_FILES['imagen']['name'];
+        $rutaDestino = '../uploads/' . $nombreArchivo; 
+        // **Funcion PHP: move_uploaded_file — Mueve un archivo subido a una nueva ubicación**        
+        if (move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaDestino)) {
+            // **Respuesta del servidor **
+            echo json_encode(['mensaje' => '¡Imagen subida con éxito!', 'ruta' => $rutaDestino]);
+        } else {
+            echo json_encode(['error' => 'Error al mover el archivo']);
+        }
+    } else {
+        echo json_encode(['error' => 'Error en la carga del archivo']);
+         // Registro de un mensaje de error en un archivo específico
+         ini_set('error_log', '../php/error.log');
+         error_log('No se recibió un archivo correctamente en el lado del servidor.', 0);
+        
+    }
+} else {
+    echo json_encode(['error' => 'Metodo no permitido, peticion HTTP entrante no es de tipo POST.']);
+}
+?>
+
+********************nombre unico 
+
+<?php
+// **CORS**
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+header("Access-Control-Allow-Credentials: true");
+
+    // **Petición HTTP**
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // **Archivo a subir**
+    if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
+    // **Nombre aleatorio del archivo y ruta del archivo**
+        $fileName = $_FILES['imagen']['name'];
+        $uniqueFileName = md5($fileName) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
+    //**destino*/
+        $rutaBase = '../uploads/';
+        $rutaDestino = $rutaBase . $uniqueFileName;
+
+    // **Mover el archivo**
+    // **Manejo de errores **
+        if (move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaDestino)) {
+            $urlImagen = 'http://' . $_SERVER['HTTP_HOST'] . '/api-imagenes/src/uploads/' . $uniqueFileName;
+            
+            echo json_encode(['mensaje' => '¡Imagen subida con éxito!', 'url' => $urlImagen]);
+        } else {
+            echo json_encode(['error' => 'Error al mover el archivo']);
+            ini_set('error_log', '../php/error.log');
+            error_log('Error al mover el archivo en el lado del servidor.', 0);
+        }
+    } else {
+        echo json_encode(['error' => 'Error en la carga del archivo']);
+        ini_set('error_log', '../php/error.log');
+        error_log('No se recibió un archivo correctamente en el lado del servidor.', 0);
+    }
+} else {
+    echo json_encode(['error' => 'Método no permitido, petición HTTP entrante no es de tipo POST.']);
+}
+
+
+?>

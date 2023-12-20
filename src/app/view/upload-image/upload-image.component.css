@@ -1,0 +1,12 @@
+
+.btn {
+    padding: 4px;
+    font-size: 14px;
+}
+
+
+input:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 1px rgba(33, 150, 243, 0.5);
+}
