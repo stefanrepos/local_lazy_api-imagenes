@@ -10,12 +10,12 @@ import { ImagesService } from '../../servicios/images.service';
 export class UploadImageComponent implements OnInit {
 
 
-  base64url: any;  // imagen en base 64 
+  imagenBase64: any;  // imagen en base 64 
   msg = "";
   imagen: any;
-  archivos: any[""];
-  imageUrl?: string;
+  galeria: any;
 
+  mostrarGalerias: boolean = false;
 
   // vamos a diseñar el modelo para capturar los datos del form y agregarlos a la tabla 
   miImagen = {
@@ -29,10 +29,12 @@ export class UploadImageComponent implements OnInit {
   
   constructor(private http: HttpClient, private imagesService: ImagesService) { }
   ngOnInit(): void { 
+    this.consultarImages();
+    console.log("consultarImages() running");
     
   }
 
-  
+    /*  funcionalidades para manipular imagenes  */
   selectFile(event: any) {
     if(!event.target.files[0] || event.target.files[0].length == 0) {
       this.msg = 'Debes seleccionar una imagen';
@@ -51,15 +53,15 @@ export class UploadImageComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]);
     reader.onload = (_event) => {
-      this.base64url = reader.result;
+      this.imagenBase64 = reader.result;
       console.log("resultado de Reader",reader.result);
-      console.log("esta es la URL BASE 64: ",this.base64url);
+      console.log("esta es la URL BASE 64: ",this.imagenBase64);
 
      // Guardar la imagen y sus atributos  de ella  en la variable imagen
       this.imagen = {
         nombre: event.target.files[0].name,
         tipo: mimeType,
-        base64: this.base64url,
+        base64: this.imagenBase64,
         creador: "No se ha especificado el creador"
       };
         // Verificar la variable imagen 
@@ -120,6 +122,8 @@ export class UploadImageComponent implements OnInit {
 
   }
 
+
+  /*  funcionalidades para base de datos  */
   ingresar() {
 
     this.imagesService.insertar(this.miImagen).subscribe((datos: any) => {
@@ -127,8 +131,23 @@ export class UploadImageComponent implements OnInit {
         console.log("Datos insertados");
       }
     });
-
 }
+  consultarImages() {
+    this.imagesService.consultar().subscribe((result: any) => {
+      this.galeria = result;
+      this.galeria.forEach((image: typeof Image) => {
+        console.log(image);
+      });
+    });
+  }
+
+
+  /*  funcionalidades para base de datos  */
+
+
+
+
+ /*  funcionalidades para navegabilidad  */
 
 
 

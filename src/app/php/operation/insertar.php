@@ -12,7 +12,7 @@ header("Access-Control-Allow-Credentials: true");
 $json   = file_get_contents('php://input');
 $params = json_decode($json);
 
-require("../php/conexion.php");
+require("../conexion.php");
 
 // **Escribe la consulta SQL**
 $ins = "INSERT INTO images (
