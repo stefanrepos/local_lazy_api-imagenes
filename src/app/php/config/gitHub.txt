@@ -80,5 +80,22 @@ git remote -v
 git remote set-url origin NUEVA_URL_DEL_REPOSITORIO
 git remote -v
 git branch
-C:\xampp\htdocs\lazy-api-imagenes\api-imagenes> git branch
+C:\xampp\htdocs\lazy-api-imagenes\api-imagenes> 
 * main
+git add .
+git commit -m "restaurar local"
+git push origin main
+git status
+
+git remote -v
+git branch -vv
+* main 9c65f2d [origin/main] restaurar local
+
+****************////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+upload changes **********
+
+git add .
+git commit -m "operation crud"
+git commit -a "operation crud"
