@@ -1,12 +1,88 @@
-
-.btn {
+   .btn {
     padding: 4px;
     font-size: 14px;
-}
-
-
-input:focus {
-    outline: none;
-    border-color: #2196F3;
-    box-shadow: 0 0 1px rgba(33, 150, 243, 0.5);
-}
+   }
+   
+   /* navegabilidad*/
+   
+   /********CARD*************botones******************/
+   .editar {
+    color: #3498db;
+    cursor: pointer;
+    padding: 10;
+   }
+   
+   .eliminar {
+    color: #d9534f;
+    cursor: pointer;
+   }
+   
+   .ingresar {
+    color: green;
+    cursor: pointer;
+   }
+   
+   /************EFECTOS ***********/
+   .card-img-top {
+    transition: transform 0.3s ease;
+   }
+   
+   /*ZOOM*/
+   .card-img-top:hover {
+    transform: scale(1.1); /* Ajusta el valor según la cantidad de zoom deseada */
+   }
+   
+   /***ESTILOS PARA LAS PROPIEDADES DE LA IMAGEN **/
+   
+   .notification-icon {
+    position: absolute;
+    top: 10px; /* Ajusta la posición vertical según tus necesidades */
+    right: 10px; /* Ajusta la posición horizontal según tus necesidades */
+    background-color: transparent; /* Color de fondo del ícono de notificación */
+    color: whitesmoke; /* Color del texto dentro del ícono de notificación */
+    font-size: 14px; /* Tamaño del texto dentro del ícono de notificación */
+    width: auto; /* Ancho del ícono de notificación */
+    height: auto; /* Altura del ícono de notificación */
+    border-radius: 1px; /* Borde redondeado para crear un círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    font-style: bold;
+    font-weight: 600;
+   }
+   
+   .notification-icon-dos {
+    position: absolute;
+    top: 10px; /* Ajusta la posición vertical según tus necesidades */
+    left: 10px; /* Ajusta la posición horizontal según tus necesidades */
+    background-color: transparent; /* Color de fondo del ícono de notificación */
+    color: whitesmoke; /* Color del texto dentro del ícono de notificación */
+    font-size: 14px; /* Tamaño del texto dentro del ícono de notificación */
+    width: auto; /* Ancho del ícono de notificación */
+    height: auto; /* Altura del ícono de notificación */
+    border-radius: 1px; /* Borde redondeado para crear un círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    font-style: bold;
+    font-weight: 600;
+   }
+   
+   .row {
+    display: flex;
+    flex-wrap: wrap;
+   }
+   
+   .col-md-2 {
+    flex: 0 0 auto; /* Establece el tamaño inicial como automático */
+    max-width: 100%; /* El ancho máximo es el 100% del contenedor padre */
+    margin: 8px; /* Agrega márgenes entre los elementos */
+   }
+   
+   .card {
+    width: 100%; /* La tarjeta ocupa el 100% del contenedor */
+    box-sizing: border-box; /* Incluye el relleno y el borde en el ancho total */
+   }
+   

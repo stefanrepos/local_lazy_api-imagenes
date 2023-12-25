@@ -28,8 +28,8 @@ export class ImagesService {
       
   }
   
-  seleccionar(id:number) {
-    return this.http.get(`${this.apiEndpoint}seleccionar.php?id=${id}`);    
+  seleccionar() {
+    return this.http.get(`${this.apiEndpoint}seleccionar.php`);    
   }
 
   edit(datos: any, id: number) {
