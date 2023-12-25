@@ -18,3 +18,67 @@ git push -u origin main
 You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
 
 
+***************************************
+
+
+proceso de rebase que ha generado conflictos. Aquí están los pasos para resolverlos:
+
+Cancelar el proceso de rebase actual:
+
+bash
+Copy code
+git rebase --abort
+Esto cancelará el rebase actual y volverá a tu estado anterior.
+
+Hacer un git pull para traer los cambios más recientes desde la rama remota:
+
+bash
+Copy code
+git pull origin main
+Resolver los conflictos (si aún persisten):
+Después de realizar el git pull, es posible que todavía haya conflictos que necesitas resolver. Si es así, seguirá siendo necesario resolverlos. Puedes utilizar el siguiente comando para revisar los archivos en conflicto:
+
+bash
+Copy code
+git status
+Luego, abre esos archivos, resuelve los conflictos y marca los archivos como resueltos.
+
+Continuar con el proceso de rebase:
+Después de resolver los conflictos, puedes continuar con el rebase mediante el siguiente comando:
+
+bash
+Copy code
+git rebase --continue
+Si hay más conflictos, repite el proceso de resolver conflictos y continuar con el rebase hasta que se complete.
+
+Finalizar el rebase:
+Después de resolver todos los conflictos y completar el rebase, realiza un commit para finalizar el proceso:
+
+bash
+Copy code
+git commit -m "Completing rebase after resolving conflicts"
+Realizar un push forzado (si es necesario):
+Si encuentras problemas al hacer el push, puedes realizar un push forzado:
+
+bash
+Copy code
+git push origin main --force
+Ten en cuenta que esto reescribirá la historia en la rama remota, así que úsalo con precaución.
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+ajustar repositorio para no ejecutar un rebase 
+
+local_lazy_api-imagenes
+
+# Verifica la URL actual del repositorio remoto
+git remote -v
+
+# Cambia la URL del repositorio remoto a la nueva URL
+git remote set-url origin NUEVA_URL_DEL_REPOSITORIO
+git remote -v
+git branch
+C:\xampp\htdocs\lazy-api-imagenes\api-imagenes> git branch
+* main
