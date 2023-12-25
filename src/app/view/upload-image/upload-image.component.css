@@ -40,7 +40,7 @@
     right: 10px; /* Ajusta la posición horizontal según tus necesidades */
     background-color: transparent; /* Color de fondo del ícono de notificación */
     color: whitesmoke; /* Color del texto dentro del ícono de notificación */
-    font-size: 14px; /* Tamaño del texto dentro del ícono de notificación */
+    font-size: 12px; /* Tamaño del texto dentro del ícono de notificación */
     width: auto; /* Ancho del ícono de notificación */
     height: auto; /* Altura del ícono de notificación */
     border-radius: 1px; /* Borde redondeado para crear un círculo */
@@ -54,11 +54,11 @@
    
    .notification-icon-dos {
     position: absolute;
-    top: 10px; /* Ajusta la posición vertical según tus necesidades */
+    bottom: 20px; /* Ajusta la posición vertical según tus necesidades */
     left: 10px; /* Ajusta la posición horizontal según tus necesidades */
     background-color: transparent; /* Color de fondo del ícono de notificación */
     color: whitesmoke; /* Color del texto dentro del ícono de notificación */
-    font-size: 14px; /* Tamaño del texto dentro del ícono de notificación */
+    font-size: 12px; /* Tamaño del texto dentro del ícono de notificación */
     width: auto; /* Ancho del ícono de notificación */
     height: auto; /* Altura del ícono de notificación */
     border-radius: 1px; /* Borde redondeado para crear un círculo */
@@ -68,8 +68,12 @@
     z-index: 2;
     font-style: bold;
     font-weight: 600;
+
    }
-   
+   .notification-icon-dos:hover {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Efecto de iluminación al pasar el mouse */
+    }
+
    .row {
     display: flex;
     flex-wrap: wrap;

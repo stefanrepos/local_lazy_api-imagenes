@@ -32,13 +32,13 @@
      <span style="color: brown;"></span>
      <input type="text" id="nombre" class="form-control" [(ngModel)]="miImagen.nombre" placeholder="Nombre" *ngIf="mostrarInputEdicion">
      <a (click)="preguntar(image.id_image, image.nombre)">
-      <span class="fas fa-eraser fa-2x eliminar" title="eliminar"></span>
+      <span class="fas fa-eraser fa-1x eliminar" title="eliminar"></span>
      </a>
      <a (click)="cargarDatos(image, image.id_image);activarEdicion()">
-      <span class="fas fa-edit fa-2x editar" title="editar"></span>
+      <span class="fas fa-edit fa-1x editar" title="editar"></span>
      </a>
      <a (click)="editar()">
-      <span class="fas fa-check-square  fa-2x ingresar" title="actualizar"></span>
+      <span class="fas fa-check-square  fa-1x ingresar" title="actualizar"></span>
      </a>
     </div>
    </div>
